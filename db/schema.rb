@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_164838) do
+ActiveRecord::Schema.define(version: 2020_08_18_192746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_08_18_164838) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_messages_on_project_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -72,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_164838) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "projects"
+  add_foreign_key "messages", "users"
   add_foreign_key "uploaded_files", "projects"
   add_foreign_key "uploaded_files", "users"
 end
