@@ -1,0 +1,4 @@
+resume_file:
+  name: file
+  record: resume (UploadedFile)
+  blob: resume_blob (ActiveStorage::Blob)
