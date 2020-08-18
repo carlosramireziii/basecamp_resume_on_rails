@@ -42,6 +42,9 @@
                   <h2 class="h5 card-title mb-2">Docs & Files</h2>
                 <% end %>
                 <hr>
+                <div class="row">
+                  <%= render partial: 'uploaded_file', collection: @uploaded_files %>
+                </div>
               </div>
             </div>
           </div>
