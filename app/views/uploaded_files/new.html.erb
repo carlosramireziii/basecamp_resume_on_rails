@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="col-sm-12 col-lg-10 mx-auto">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-white rounded-bottom-0 justify-content-center border-top border-left border-right w-75 mx-auto mb-0">
+        <li class="breadcrumb-item"><%= link_to icon('th', text: @project.title), [@project], class: 'text-reset' %></li>
+        <li class="breadcrumb-item"><%= link_to 'Docs & Files', [@project, :uploaded_files], class: 'text-reset' %></li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h1 class="h3 text-center mb-0">Upload a new file</h1>
+        <div class="col-lg-6 mx-auto mt-3">
+          <%= render 'form', project: @project, uploaded_file: @uploaded_file %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

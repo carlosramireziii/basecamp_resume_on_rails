@@ -4,3 +4,5 @@ en:
       user:
         create: Register
         update: Save my changes
+      uploaded_file:
+        create: Upload

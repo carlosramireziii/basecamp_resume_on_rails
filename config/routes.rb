@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :uploaded_files, except: [:edit, :update]
+  end
   resource :sessions, only: [:new, :create, :destroy]
   resource :users, only: [:new, :create, :edit, :update]
   root to: 'projects#index'
