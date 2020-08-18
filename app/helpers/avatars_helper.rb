@@ -1,4 +1,12 @@
 module AvatarsHelper
+  def user_avatar_list(users)
+    user_list_items = users.map do |user|
+      content_tag :li, image_or_text_avatar(user, image_size: 32, text_size: 2), class: 'list-inline-item mr-1'
+    end
+
+    content_tag :ul, safe_join(user_list_items), class: 'list-inline mb-0'
+  end
+
   def image_or_text_avatar(user, image_size: DEFAULT_IMAGE_SIZE_IN_PX, text_size: DEFAULT_TEXT_SIZE_IN_REM)
     if user.avatar.attached?
       image_avatar(user, size: image_size)
