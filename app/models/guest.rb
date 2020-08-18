@@ -10,4 +10,8 @@ class Guest
   def full_name
     [first_name, last_name].join(' ')
   end
+
+  def guest?
+    true
+  end
 end

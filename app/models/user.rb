@@ -4,4 +4,8 @@ class User < ApplicationRecord
   def full_name
     [first_name, last_name].reject(&:blank?).compact.join(' ')
   end
+
+  def guest?
+    false
+  end
 end
