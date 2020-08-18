@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="col-sm-12 col-lg-10 mx-auto">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-white rounded-bottom-0 justify-content-center border-top border-left border-right w-75 mx-auto mb-0">
+        <li class="breadcrumb-item"><%= link_to icon('th', text: @project.title), [@project], class: 'text-reset' %></li>
+        <li class="breadcrumb-item"><%= link_to 'To-dos', [@project, :todo_lists], class: 'text-reset' %></li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg">
+      <div class="card-body p-5">
+        <div class="position-relative">
+          <div class="position-absolute" style="right:0; top:0">
+            <div class="dropdown">
+              <%= link_to icon('cog'), 'javascript:void(0)', id: 'uploadedFileDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="uploadedFileDropdown">
+                <%= link_to 'Edit list', [:edit, @project, @todo_list], class: 'dropdown-item' %>
+                <%= link_to 'Delete list', [@project, @todo_list], method: :delete, data: { confirm: 'Are you sure? This cannot be undone' }, class: 'dropdown-item' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1 class="h3"><%= @todo_list.title %></h1>
+      </div>
+    </div>
+  </div>
+</div>

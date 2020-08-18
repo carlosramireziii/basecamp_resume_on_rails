@@ -1,0 +1,4 @@
+<h3 class="h6 font-weight-bold small mb-0"><%= todo_list.title %></h3>
+<ul>
+  <%= render partial: 'todo_item', collection: todo_list.todo_items.limit(6) %>
+</ul>

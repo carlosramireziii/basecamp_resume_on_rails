@@ -4,6 +4,9 @@ en:
       message:
         create: Post message
         update: Save my changes
+      todo_list:
+        create: Create list
+        update: Save my changes
       uploaded_file:
         create: Upload
       user:

@@ -1,0 +1,4 @@
+<h2 class="h4 mb-0"><%= link_to todo_list.title, [todo_list.project, todo_list], class: 'text-reset' %></h3>
+<ul>
+  <%= render partial: 'todo_item', collection: todo_list.todo_items.limit(6) %>
+</ul>

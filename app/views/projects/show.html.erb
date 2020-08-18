@@ -35,8 +35,11 @@
           <div class="col-lg-4">
             <div class="card mt-3 shadow-sm">
               <div class="card-body">
-                <h2 class="h5 card-title mb-2">To-dos</h2>
+                <%= link_to [@project, :todo_lists], class: 'text-reset stretched-link' do %>
+                  <h2 class="h5 card-title mb-2">To-dos</h2>
+                <% end %>
                 <hr>
+                <%= render partial: 'todo_list', collection: @todo_lists %>
               </div>
             </div>
           </div>

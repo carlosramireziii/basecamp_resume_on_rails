@@ -1,0 +1,7 @@
+<%= bootstrap_form_with model: [project, todo_list] do |form| %>
+  <%= form.text_field :title, hide_label: true, placeholder: true %>
+  <div class="row no-gutters">
+    <%= form.button class: "btn btn-success flex-grow-1", data: { disable_with: icon('spinner fa-spin', text: 'Creating') } %>
+    <%= link_to 'Cancel', [project, :todo_lists], class: 'btn ml-auto' %>
+  </div>
+<% end %>
