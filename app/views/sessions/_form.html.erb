@@ -1,0 +1,6 @@
+<%= render 'alerts' %>
+<%= bootstrap_form_with url: [:sessions] do |form| %>
+  <%= form.email_field :email %>
+  <%= form.password_field :password %>
+  <%= form.submit 'Log in', class: 'btn btn-success btn-block' %>
+<% end %>

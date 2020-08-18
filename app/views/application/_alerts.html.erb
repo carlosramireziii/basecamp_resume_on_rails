@@ -1,0 +1,15 @@
+<% if flash.alert.present? %>
+  <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+    <%= flash.alert.html_safe %>
+    <%= button_tag class: "close", data: { dismiss: "alert" }, aria: { label: "Close" } do %>
+      <span aria-hidden="true">&times;</span>
+    <% end %>
+  </div>
+<% elsif flash.notice.present? %>
+  <div class="alert alert-primary alert-dismissible fade show text-center" role="alert">
+    <%= flash.notice.html_safe %>
+    <%= button_tag class: "close", data: { dismiss: "alert" }, aria: { label: "Close" } do %>
+      <span aria-hidden="true">&times;</span>
+    <% end %>
+  </div>
+<% end %>
