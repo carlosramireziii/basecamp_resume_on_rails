@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="col-sm-12 col-lg-10 mx-auto">
+    <div class="card mt-3 shadow-sm">
+      <div class="card-body">
+        <h1 class="h3 card-title text-center mb-2"><%= @project.title %></h1>
+        <div class="w-50 mx-auto text-center">
+          <p class="card-text text-muted"><%= @project.description %></p>
+          <%= user_avatar_list @project.users %>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mt-3 shadow-sm">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-2">Posts</h2>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mt-3 shadow-sm">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-2">To-dos</h2>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mt-3 shadow-sm">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-2">Docs & Files</h2>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

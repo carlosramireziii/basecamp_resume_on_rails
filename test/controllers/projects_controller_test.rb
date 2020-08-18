@@ -39,4 +39,14 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to projects_path
   end
+
+  test 'should get show' do
+    get project_path(@project)
+
+    assert_response :success
+    assert_select 'h1', text: @project.title
+    assert_select 'h2', text: 'Posts'
+    assert_select 'h2', text: 'To-dos'
+    assert_select 'h2', text: 'Docs & Files'
+  end
 end
