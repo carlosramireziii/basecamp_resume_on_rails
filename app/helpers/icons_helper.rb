@@ -3,6 +3,13 @@ module IconsHelper
     classes = "fas fa-#{name} "
     classes << html_options[:class].to_s
 
-    tag.i class: classes.strip
+    if text = html_options[:text]
+      classes << 'mr-1'
+    end
+
+    safe_join [
+      tag.i(class: classes.strip),
+      text,
+    ].compact
   end
 end

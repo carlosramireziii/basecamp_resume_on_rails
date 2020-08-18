@@ -1,3 +1,8 @@
-@import "@fortawesome/fontawesome-free/css/all";
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+
+@import "rails_bootstrap_forms";
 @import "bootstrap_overrides";
 @import "bootstrap/scss/bootstrap";

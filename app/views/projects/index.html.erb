@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="h3 mb-0">Projects</h1>
+    <%= link_to icon('plus', text: 'New'), [:new, :project], class: 'btn btn-success btn-sm ml-2' %>
+  </div>
+  <div class="row mt-3">
+    <%= render(@projects) || render('empty') %>
+  </div>
+</div>

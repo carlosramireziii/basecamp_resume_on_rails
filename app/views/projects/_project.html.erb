@@ -1,0 +1,11 @@
+<div class="offset-md-4 col-md-4">
+  <div class="card mt-3 shadow-sm">
+    <div class="card-body">
+      <%= link_to project, class: 'text-reset stretched-link'  do %>
+        <h2 class="h5 card-title mb-2"><%= project.title %></h1>
+      <% end %>
+      <p class="card-text text-muted"><%= project.description %></p>
+      <%= user_avatar_list project.users %>
+    </div>
+  </div>
+</div>
