@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 
   def show
     @uploaded_files = @project.uploaded_files.limit(4)
+    @messages = @project.messages.limit(4)
   end
 
   def edit

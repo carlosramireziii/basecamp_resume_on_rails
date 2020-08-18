@@ -47,7 +47,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select 'h1', text: @project.title
-    assert_select 'h2', text: 'Posts'
+    assert_select 'h2', text: 'Message Board'
     assert_select 'h2', text: 'To-dos'
     assert_select 'h2', text: 'Docs & Files'
     assert_select 'h3', text: uploaded_file.filename.to_s
