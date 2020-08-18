@@ -3,6 +3,8 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "@fortawesome/fontawesome-free/scss/brands";
 
+@import "trix/dist/trix";
+
 @import "rails_bootstrap_forms";
 @import "bootstrap_overrides";
 @import "bootstrap/scss/bootstrap";
@@ -10,4 +12,11 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 .rounded-bottom-0 {
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
+}
+
+// Fix for Trix rich text editor element + Bootstrap
+// Allows the text area to scroll as content is added
+trix-editor.form-control {
+  height: 20rem;
+  overflow-y: auto;
 }
