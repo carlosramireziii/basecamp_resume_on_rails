@@ -12,4 +12,21 @@ module IconsHelper
       text,
     ].compact
   end
+
+  def icon_for_content_type(content_type)
+    case content_type
+    when /audio/
+      'file-audio'
+    when /image/
+      'file-image'
+    when /pdf/
+      'file-pdf'
+    when /text/
+      'file-alt'
+    when /video/
+      'file-video'
+    else
+      'file'
+    end
+  end
 end
