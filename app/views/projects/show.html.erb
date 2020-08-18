@@ -22,8 +22,13 @@
           <div class="col-lg-4">
             <div class="card mt-3 shadow-sm">
               <div class="card-body">
-                <h2 class="h5 card-title mb-2">Posts</h2>
+                <%= link_to [@project, :messages], class: 'text-reset stretched-link' do %>
+                  <h2 class="h5 card-title mb-2">Message Board</h2>
+                <% end %>
                 <hr>
+                <ul class="list-unstyled mb-0">
+                  <%= render partial: 'message', collection: @messages %>
+                </ul>
               </div>
             </div>
           </div>

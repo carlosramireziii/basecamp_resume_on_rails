@@ -1,0 +1,9 @@
+<li class="media mb-1">
+  <div class="mr-3">
+    <%= image_or_text_avatar message.user, image_size: 24, text_size: 1.5 %>
+  </div>
+  <div class="media-body">
+    <h3 class="h6 font-weight-bold small mb-0"><%= message.title %></h3>
+    <p class="small"><%= truncate message.content.to_plain_text, length: 70 %></p>
+  </div>
+</li>

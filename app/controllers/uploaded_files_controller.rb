@@ -1,5 +1,6 @@
 class UploadedFilesController < ApplicationController
-  before_action :set_project
+  include ProjectContext
+
   before_action :set_uploaded_file, only: [:show, :destroy]
 
   def index
@@ -30,10 +31,6 @@ class UploadedFilesController < ApplicationController
   end
 
   private
-
-  def set_project
-    @project = Project.find(params[:project_id])
-  end
 
   def set_uploaded_file
     @uploaded_file = @project.uploaded_files.find(params[:id])
