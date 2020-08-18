@@ -24,9 +24,11 @@ require("@fortawesome/fontawesome-free");
 
 // Show filename in custom file input
 document.addEventListener("turbolinks:load", function() {
-  document.querySelector(".custom-file-input").addEventListener("change", function(e){
-    var fileName = e.target.files[0].name;
-    var nextSibling = e.target.nextElementSibling;
-    nextSibling.innerText = fileName;
+  document.querySelectorAll(".custom-file-input").forEach(function(fileInput) {
+    fileInput.addEventListener("change", function(e) {
+      var fileName = e.target.files[0].name;
+      var nextSibling = e.target.nextElementSibling;
+      nextSibling.innerText = fileName;
+    });
   });
 });
