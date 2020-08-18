@@ -1,0 +1,5 @@
+my_todo_item:
+  todo_list: my_todo_list
+  user: carlos
+  title: My Todo Item
+  complete: false
