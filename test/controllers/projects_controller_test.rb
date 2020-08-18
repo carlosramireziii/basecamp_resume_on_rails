@@ -49,4 +49,31 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', text: 'To-dos'
     assert_select 'h2', text: 'Docs & Files'
   end
+
+  test 'should get edit' do
+    get edit_project_path(@project)
+
+    assert_response :success
+    assert_select 'h1', text: 'Edit project details'
+    assert_select 'form'
+  end
+
+  test 'should patch update' do
+    patch project_path(@project), params: { project: { title: 'New title' } }
+
+    assert_response :redirect
+    assert_redirected_to project_path(@project)
+    assert_not_nil flash.notice
+    assert_equal 'New title', @project.reload.title
+  end
+
+  test 'should delete destroy' do
+    assert_changes 'Project.count' do
+      delete project_path(@project)
+    end
+
+    assert_response :redirect
+    assert_redirected_to projects_path
+    assert_not_nil flash.alert
+  end
 end

@@ -2,7 +2,18 @@
   <div class="col-sm-12 col-lg-10 mx-auto">
     <div class="card mt-3 shadow-sm">
       <div class="card-body">
-        <h1 class="h3 card-title text-center mb-2"><%= @project.title %></h1>
+        <div class="position-relative">
+          <h1 class="h3 card-title text-center mb-2"><%= @project.title %></h1>
+          <div class="position-absolute" style="right:0; top:0">
+            <div class="dropdown">
+              <%= link_to icon('cog'), 'javascript:void(0)', id: 'projectDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="projectDropdown">
+                <%= link_to 'Edit project', [:edit, @project], class: 'dropdown-item' %>
+                <%= link_to 'Delete project', [@project], method: :delete, data: { confirm: 'Are you sure? This cannot be undone' }, class: 'dropdown-item' %>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="w-50 mx-auto text-center">
           <p class="card-text text-muted"><%= @project.description %></p>
           <%= user_avatar_list @project.users %>
