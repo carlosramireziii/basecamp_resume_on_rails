@@ -1,5 +1,5 @@
 carlos:
-  email: carlos@test.com
+  email: carlos.ramirez@test.com
   password_digest: <%= BCrypt::Password.create('mypass') %>
   first_name: Carlos
   last_name: Ramirez

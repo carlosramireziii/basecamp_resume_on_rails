@@ -1,0 +1,15 @@
+<%= bootstrap_form_with model: user, url: [:users] do |form| %>
+  <% if user.persisted? %>
+    <%= form.file_field :avatar %>
+  <% end %>
+  <%= form.email_field :email %>
+  <%= form.text_field :first_name %>
+  <%= form.text_field :last_name %>
+  <% if !user.persisted? %>
+    <%= form.password_field :password %>
+  <% end %>
+  <div class="row no-gutters">
+    <%= form.button class: "btn btn-success flex-grow-1" %>
+    <%= link_to 'Cancel', :root, class: 'btn ml-auto' %>
+  </div>
+<% end %>

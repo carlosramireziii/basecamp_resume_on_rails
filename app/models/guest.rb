@@ -1,4 +1,8 @@
 class Guest
+  def avatar
+    OpenStruct.new(attached?: false)
+  end
+
   def first_name
     'Guest'
   end
