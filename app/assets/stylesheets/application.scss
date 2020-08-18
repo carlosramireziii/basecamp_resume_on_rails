@@ -6,3 +6,8 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "rails_bootstrap_forms";
 @import "bootstrap_overrides";
 @import "bootstrap/scss/bootstrap";
+
+.rounded-bottom-0 {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}

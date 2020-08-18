@@ -15,7 +15,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index with no projects' do
-    Project.delete_all
+    Project.destroy_all
 
     get projects_path
 
@@ -41,6 +41,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
+    uploaded_file = @project.uploaded_files.first
+
     get project_path(@project)
 
     assert_response :success
@@ -48,6 +50,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', text: 'Posts'
     assert_select 'h2', text: 'To-dos'
     assert_select 'h2', text: 'Docs & Files'
+    assert_select 'h3', text: uploaded_file.filename.to_s
   end
 
   test 'should get edit' do

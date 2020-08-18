@@ -1,6 +1,8 @@
 en:
   helpers:
     submit:
+      uploaded_file:
+        create: Upload
       user:
         create: Register
         update: Save my changes

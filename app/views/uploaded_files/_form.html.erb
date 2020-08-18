@@ -1,0 +1,7 @@
+<%= bootstrap_form_with model: [project, uploaded_file] do |form| %>
+  <%= form.file_field :file, hide_label: true %>
+  <div class="row no-gutters">
+    <%= form.button class: "btn btn-success flex-grow-1", data: { disable_with: icon('spinner fa-spin', text: 'Uploading') } %>
+    <%= link_to 'Cancel', [project, :uploaded_files], class: 'btn ml-auto' %>
+  </div>
+<% end %>

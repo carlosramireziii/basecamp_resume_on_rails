@@ -1,0 +1,12 @@
+<div class="col-md-3 mb-3">
+  <div class="card h-100 mt-3 shadow-sm">
+    <div class="card-body text-center">
+      <div class="mb-2">
+        <%= icon(icon_for_content_type(uploaded_file.content_type), class: 'fa-2x') %>
+      </div>
+      <%= link_to [uploaded_file.project, uploaded_file], class: 'text-reset stretched-link' do %>
+        <h2 class="h5 card-title mb-2"><%= uploaded_file.filename %></h1>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+resume_file:
+  name: file
+  record: resume (UploadedFile)
+  blob_id: 1 # For some reason the ActiveStorage::Blob fixtures cannot be resolved by name
