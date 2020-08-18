@@ -1,0 +1,13 @@
+<div class="offset-md-4 col-md-4 h-100">
+  <div class="card mt-3 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 card-title mb-2"><%= project.title %></h1>
+      <p class="card-text"><%= project.description %></p>
+      <ul class="list-inline mb-0">
+        <% User.all.each do |user| %>
+          <li class="list-inline-item mr-1"><%= image_or_text_avatar(user, image_size: 32, text_size: 2) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
