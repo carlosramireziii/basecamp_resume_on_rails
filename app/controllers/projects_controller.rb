@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 
   def show
     @messages = @project.messages.limit(4)
-    @todo_lists = @project.todo_lists.limit(1)
+    @todo_lists = @project.todo_lists.limit(2)
     @uploaded_files = @project.uploaded_files.limit(4)
   end
 

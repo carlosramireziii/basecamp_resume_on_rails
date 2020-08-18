@@ -4,6 +4,8 @@ en:
       message:
         create: Post message
         update: Save my changes
+      todo_item:
+        create: Add this to-do
       todo_list:
         create: Create list
         update: Save my changes

@@ -1,4 +1,9 @@
-<h2 class="h4 mb-0"><%= link_to todo_list.title, [todo_list.project, todo_list], class: 'text-reset' %></h3>
-<ul>
-  <%= render partial: 'todo_item', collection: todo_list.todo_items.limit(6) %>
-</ul>
+<div class="mb-3">
+  <h2 class="h4"><%= link_to todo_list.title, [todo_list.project, todo_list], class: 'text-reset' %></h3>
+  <ul class="list-unstyled">
+    <%= render todo_list.todo_items.limit(6) %>
+  </ul>
+  <div id="<%= dom_id(TodoItem.new, dom_id(todo_list)) %>">
+    <%= render 'todo_items/new_todo_item_button', project: todo_list.project, todo_list: todo_list %>
+  </div>
+</div>

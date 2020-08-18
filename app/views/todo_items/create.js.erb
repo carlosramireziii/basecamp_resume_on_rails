@@ -1,0 +1,11 @@
+<% if @todo_item.persisted? %>
+  var todoItem = document.createElement("div");
+  todoItem.innerHTML = "<%= j render(@todo_item) %>";
+  document.querySelector("#<%= dom_id @todo_list %>").appendChild(todoItem);
+
+  addButtonHTML = "<%= j render('new_todo_item_button', project: @project, todo_list: @todo_list) %>";
+  document.querySelector("#<%= dom_id(TodoItem.new, dom_id(@todo_list)) %>").innerHTML = addButtonHTML;
+<% else %>
+  var formHTML = "<%= j render('new_todo_item', project: @project, todo_list: @todo_list, todo_item: @todo_item) %>";
+  document.querySelector("#<%= dom_id(TodoItem.new, dom_id(@todo_list)) %>").innerHTML = formHTML;
+<% end %>
