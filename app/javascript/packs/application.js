@@ -32,3 +32,15 @@ document.addEventListener("turbolinks:load", function() {
     });
   });
 });
+
+// A behavior to click a link when a checkbox is checked
+document.addEventListener("turbolinks:load", function() {
+  document.querySelectorAll("input[type=checkbox][data-behavior*=click-delegate]").forEach(function(element) {
+    element.addEventListener("click", function(e) {
+      const element = e.target;
+      const target = element.dataset.target;
+      console.log(target);
+      document.querySelector(target).click();
+    });
+  });
+});

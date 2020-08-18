@@ -22,7 +22,8 @@ class TodoListsController < ApplicationController
   end
 
   def show
-    @todo_item = @todo_list.todo_items.new
+    @complete_todo_items = @todo_list.todo_items.complete
+    @incomplete_todo_items = @todo_list.todo_items.incomplete
   end
 
   def edit

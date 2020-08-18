@@ -7,7 +7,7 @@ class TodoItemsController < ApplicationController
     @todo_item = @todo_list.todo_items.new
   end
 
- def create
+  def create
     @todo_item = @todo_list.todo_items.build(todo_item_params_with_user)
     @todo_item.save
   end

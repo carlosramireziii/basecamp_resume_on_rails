@@ -22,7 +22,8 @@
         <div class="col-lg-8 mx-auto">
           <h1 class="h3"><%= @todo_list.title %></h1>
           <ul id="<%= dom_id @todo_list %>" class="list-unstyled">
-            <%= render @todo_list.todo_items %>
+            <%= render @incomplete_todo_items %>
+            <%= render @complete_todo_items %>
           </ul>
           <div id="<%= dom_id(TodoItem.new, dom_id(@todo_list)) %>">
             <%= render 'todo_items/new_todo_item_button', project: @project, todo_list: @todo_list %>

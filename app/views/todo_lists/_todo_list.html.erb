@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <h2 class="h4"><%= link_to todo_list.title, [todo_list.project, todo_list], class: 'text-reset' %></h3>
+  <h2 class="h4"><%= link_to todo_list.title, [todo_list.project, todo_list], class: 'text-reset' %></h2>
   <ul class="list-unstyled">
     <%= render todo_list.todo_items.limit(6) %>
   </ul>

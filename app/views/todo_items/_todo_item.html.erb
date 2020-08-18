@@ -1,4 +1,12 @@
 <li>
-  <%= check_box_tag nil, nil %>
-  <%= todo_item.title %>
+  <%= check_box_tag nil, nil, todo_item.complete?, data: { behavior: 'click-delegate', target: "#" + dom_id(todo_item, 'completion') } %>
+  <div class="d-none">
+    <% if todo_item.complete? %>
+      <%= link_to 'Un-complete', [todo_item.project, todo_item.todo_list, todo_item, :completions], id: dom_id(todo_item, 'completion'), method: :delete %>
+    <% else %>
+      <%= link_to 'Complete', [todo_item.project, todo_item.todo_list, todo_item, :completions], id: dom_id(todo_item, 'completion'), method: :post %>
+    <% end %>
+  </div>
+
+  <span class="<%= class_string('text-muted small' => todo_item.complete?) %>"><%= todo_item.title %></span>
 </li>
