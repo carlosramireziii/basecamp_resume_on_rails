@@ -1,24 +1,35 @@
-# README
+# Basecamp Resume on Rails 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A mini Basecamp clone to demonstrate why I've loved using Rails all these years: I can create full-featured web applications as a solo developer efficiently and with ease. 
 
-Things you may want to cover:
+## Ruby Version
 
-* Ruby version
+The Ruby version is specified in the `.ruby-version` file.
 
-* System dependencies
+## Setup
 
-* Configuration
+To set up a new local environment, run the `bin/setup` command.
 
-* Database creation
+## Test Suite
 
-* Database initialization
+To run the test suite use `bin/rails test`.
 
-* How to run the test suite
+## Deployment Instructions
 
-* Services (job queues, cache servers, search engines, etc.)
+The app is hosted on Heroku.
 
-* Deployment instructions
+### Automatic Deploys
 
-* ...
+The `staging` app is setup to automatically deploy any code which is merged to the `master` branch of the connected Github repository.
+
+Deployment to the `production` app can be done by promoting the latest `staging` release.
+
+### Manual Deploys
+
+If necessary, you can deploy manually by push to the `staging` or `production` Git remote endpoints which were added during setup.
+
+## Components
+
+### File Storage
+
+Files are stored using the ActiveStorage framework and hosted on Amazon S3. Credentials are encrypted and stored by Rails.
