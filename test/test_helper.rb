@@ -25,4 +25,12 @@ class ActiveSupport::TestCase
     assert_redirected_to new_users_path
     assert_not_nil flash.notice
   end
+
+  # Allows ENV variables to be set for the duration of the block
+  def with_env_vars(vars = {})
+    vars_cache = ENV.slice(*vars.keys)
+    vars.each { |k, v| ENV[k] = v }
+    yield
+    vars.each { |k, _| ENV[k] = vars_cache[k] }
+  end
 end
