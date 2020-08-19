@@ -6,7 +6,7 @@
     <h2 class="h5 mt-0 mb-1"><%= link_to message.title, [message.project, message], class: 'text-reset' %></h2>
     <span class="text-muted">
       <%= message.user.full_name %>
-      &#8226;
+      <%= ascii_bullet %>
       <%= time_tag message.created_at, message.created_at.strftime("%B %d, %Y") %>
       &mdash;
     </span>
