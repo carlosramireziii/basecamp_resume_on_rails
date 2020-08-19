@@ -1,5 +1,7 @@
 class TodoItemsController < ApplicationController
   include ProjectContext
+
+  requires_registration
   
   before_action :set_todo_list
   before_action :set_todo_item, only: [:destroy]

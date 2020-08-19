@@ -1,6 +1,8 @@
 class UploadedFilesController < ApplicationController
   include ProjectContext
 
+  requires_registration except: [:index, :show]
+
   before_action :set_uploaded_file, only: [:show, :destroy]
 
   def index

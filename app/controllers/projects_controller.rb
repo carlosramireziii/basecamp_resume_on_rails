@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  requires_registration except: [:index, :show]
+
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to [:projects], notice: 'Enjoy your new project!'
+      redirect_to [:projects]
     else
       render :new
     end
@@ -32,7 +34,7 @@ class ProjectsController < ApplicationController
     @project.attributes = project_params
 
     if @project.save
-      redirect_to [@project], notice: 'Your project details have been updated!'
+      redirect_to [@project]
     else
       render :edit
     end
@@ -41,7 +43,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
 
-    redirect_to [:projects], alert: 'Your project has been permanently destroyed.'
+    redirect_to [:projects]
   end
 
   private

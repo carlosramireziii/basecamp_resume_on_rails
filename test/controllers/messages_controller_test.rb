@@ -2,6 +2,7 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:carlos)
     @project = projects(:my_project)
     @message = messages(:my_message)
   end
@@ -25,6 +26,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
+    sign_in @user
     get new_project_message_path(@project)
 
     assert_response :success
@@ -32,15 +34,27 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'form'
   end
 
+  test 'should not get new when signed out' do
+    assert_requires_registration do
+      get new_project_message_path(@project)
+    end
+  end
+
   test 'should post create' do
     assert_changes 'Message.count' do
-      sign_in users(:carlos)
+      sign_in @user
       post project_messages_path(@project), params: { message: new_message_params }
     end
 
     assert_response :redirect
     assert_redirected_to project_messages_path(@project)
     assert_not_nil flash.notice
+  end
+
+  test 'should not post create when signed out' do
+    assert_requires_registration do
+      post project_messages_path(@project)
+    end
   end
 
   test 'should get show' do
@@ -51,6 +65,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
+    sign_in @user
     get edit_project_message_path(@project, @message)
 
     assert_response :success
@@ -58,7 +73,14 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'form'
   end
 
+  test 'should not get edit when signed out' do
+    assert_requires_registration do
+      get edit_project_message_path(@project, @message)
+    end
+  end
+
   test 'should patch update' do
+    sign_in @user
     patch project_message_path(@project, @message), params: { message: { title: 'New title' } }
 
     assert_response :redirect
@@ -67,14 +89,27 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'New title', @message.reload.title
   end
 
+  test 'should not patch update when signed out' do
+    assert_requires_registration do
+      patch project_message_path(@project, @message)
+    end
+  end
+
   test 'should delete destroy' do
     assert_changes 'Message.count' do
+      sign_in @user
       delete project_message_path(@project, @message)
     end
 
     assert_response :redirect
     assert_redirected_to project_messages_path
     assert_not_nil flash.alert
+  end
+
+  test 'should not delete destroy when signed out' do
+    assert_requires_registration do
+      delete project_message_path(@project, @message)
+    end
   end
 
   private

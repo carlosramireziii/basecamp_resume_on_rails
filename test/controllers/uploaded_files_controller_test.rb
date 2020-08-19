@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UploadedFilesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:carlos)
     @project = projects(:my_project)
     @uploaded_file = uploaded_files(:resume)
   end
@@ -25,6 +26,7 @@ class UploadedFilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
+    sign_in @user
     get new_project_uploaded_file_path(@project)
 
     assert_response :success
@@ -32,15 +34,27 @@ class UploadedFilesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'form'
   end
 
+  test 'should not get new when signed out' do
+    assert_requires_registration do
+      get new_project_uploaded_file_path(@project)
+    end
+  end
+
   test 'should post create' do
     assert_changes 'UploadedFile.count' do
-      sign_in users(:carlos)
+      sign_in @user
       post project_uploaded_files_path(@project), params: { uploaded_file: new_uploaded_file_params }
     end
 
     assert_response :redirect
     assert_redirected_to project_uploaded_files_path(@project)
     assert_not_nil flash.notice
+  end
+
+  test 'should not post create when signed out' do
+    assert_requires_registration do
+      post project_uploaded_files_path(@project)
+    end
   end
 
   test 'should get show' do
@@ -53,12 +67,19 @@ class UploadedFilesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should delete destroy' do
     assert_changes 'UploadedFile.count' do
+      sign_in @user
       delete project_uploaded_file_path(@project, @uploaded_file)
     end
 
     assert_response :redirect
     assert_redirected_to project_uploaded_files_path
     assert_not_nil flash.alert
+  end
+
+  test 'should not delete destroy when signed out' do
+    assert_requires_registration do
+      delete project_uploaded_file_path(@project, @uploaded_file)
+    end
   end
 
   private
