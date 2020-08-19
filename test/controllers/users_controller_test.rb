@@ -20,7 +20,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to root_path
-    assert_not_nil flash.notice
   end
 
   test 'should get edit' do

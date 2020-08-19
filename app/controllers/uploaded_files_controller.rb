@@ -17,7 +17,7 @@ class UploadedFilesController < ApplicationController
     @uploaded_file = @project.uploaded_files.build(uploaded_file_params_with_user)
 
     if @uploaded_file.save
-      redirect_to [@project, :uploaded_files], notice: 'Your file has been uploaded!'
+      redirect_to [@project, :uploaded_files]
     else
       render :new
     end
@@ -29,7 +29,7 @@ class UploadedFilesController < ApplicationController
   def destroy
     @uploaded_file.destroy
 
-    redirect_to [@project, :uploaded_files], alert: 'Your file has been destroyed'
+    redirect_to [@project, :uploaded_files]
   end
 
   private

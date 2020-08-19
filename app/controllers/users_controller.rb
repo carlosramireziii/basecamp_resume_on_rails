@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      redirect_to root_url, notice: "Welcome, glad to have you here!"
+      redirect_to root_url
     else
       render :new
     end

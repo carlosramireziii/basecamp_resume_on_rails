@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     @message = @project.messages.build(message_params_with_user)
 
     if @message.save
-      redirect_to [@project, :messages], notice: 'Your message has been posted!'
+      redirect_to [@project, :messages]
     else
       render :new
     end
@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
     @message.attributes = message_params
 
     if @message.save
-      redirect_to [@project, @message], notice: 'Your message has been updated!'
+      redirect_to [@project, @message]
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
 
-    redirect_to [@project, :messages], alert: 'Your message has been destroyed'
+    redirect_to [@project, :messages]
   end
 
   private

@@ -17,7 +17,7 @@ class TodoListsController < ApplicationController
     @todo_list = @project.todo_lists.build(todo_list_params_with_user)
 
     if @todo_list.save
-      redirect_to [@project, :todo_lists], notice: 'Your to-do list has been created!'
+      redirect_to [@project, :todo_lists]
     else
       render :new
     end
@@ -34,7 +34,7 @@ class TodoListsController < ApplicationController
     @todo_list.attributes = todo_list_params
 
     if @todo_list.save
-      redirect_to [@project, @todo_list], notice: 'Your to-do list has been updated!'
+      redirect_to [@project, @todo_list]
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
 
-    redirect_to [@project, :todo_lists], alert: 'Your to-do list and all its to-do items have been destroyed'
+    redirect_to [@project, :todo_lists]
   end
 
   private

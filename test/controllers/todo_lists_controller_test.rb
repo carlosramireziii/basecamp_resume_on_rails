@@ -48,7 +48,6 @@ class TodoListsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to project_todo_lists_path(@project)
-    assert_not_nil flash.notice
   end
 
   test 'should not post create when signed out' do
@@ -85,7 +84,6 @@ class TodoListsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to project_todo_list_path(@project, @todo_list)
-    assert_not_nil flash.notice
     assert_equal 'New title', @todo_list.reload.title
   end
 
@@ -103,7 +101,6 @@ class TodoListsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to project_todo_lists_path
-    assert_not_nil flash.alert
   end
 
   test 'should not delete destroy when signed out' do
