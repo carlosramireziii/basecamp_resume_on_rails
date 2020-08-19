@@ -70,7 +70,6 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to project_path(@project)
-    assert_not_nil flash.notice
     assert_equal 'New title', @project.reload.title
   end
 
@@ -81,6 +80,5 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to projects_path
-    assert_not_nil flash.alert
   end
 end

@@ -8,7 +8,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h1', text: 'Log In'
     assert_select 'input[type="email"]'
     assert_select 'input[type="password"]'
-    assert_select 'input[type="submit"]'
+    assert_select 'button'
   end
 
   test 'should post create with valid credentials' do
@@ -18,7 +18,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to root_url
-    assert_not_nil flash.notice
   end
 
   test 'should post create with invalid credentials' do
@@ -40,6 +39,5 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to new_sessions_path
-    assert_not_nil flash.alert
   end
 end
