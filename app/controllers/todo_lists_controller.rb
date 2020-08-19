@@ -1,6 +1,8 @@
 class TodoListsController < ApplicationController
   include ProjectContext
 
+  requires_registration except: [:index, :show]
+
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 
   def index

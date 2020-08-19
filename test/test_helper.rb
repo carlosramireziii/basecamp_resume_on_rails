@@ -13,4 +13,16 @@ class ActiveSupport::TestCase
   def sign_in(user)
     post sessions_path, params: { email: user.email, password: 'mypass' }
   end
+
+  def sign_out
+    delete sessions_path
+  end
+
+  def assert_requires_registration
+    yield
+
+    assert_response :redirect
+    assert_redirected_to new_users_path
+    assert_not_nil flash.notice
+  end
 end

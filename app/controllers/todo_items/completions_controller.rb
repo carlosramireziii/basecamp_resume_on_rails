@@ -1,6 +1,8 @@
 class TodoItems::CompletionsController < ApplicationController
   include ProjectContext
 
+  requires_registration
+
   before_action :set_todo_list, :set_todo_item
 
   def create
