@@ -1,6 +1,6 @@
 <div class="mb-3">
   <h2 class="h4"><%= link_to todo_list.title, [todo_list.project, todo_list], class: 'text-reset' %></h2>
-  <ul class="list-unstyled">
+  <ul id="<%= dom_id todo_list %>" class="list-unstyled">
     <%= render todo_list.todo_items.order_by_incomplete_first %>
   </ul>
   <div id="<%= dom_id(TodoItem.new, dom_id(todo_list)) %>">

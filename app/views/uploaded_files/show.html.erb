@@ -19,7 +19,13 @@
           </div>
         </div>
         <div class="mb-2">
-          <%= icon icon_for_content_type(@uploaded_file.content_type), class: 'fa-3x' %>
+          <% if @uploaded_file.file.variable? %>
+            <%= link_to rails_blob_path(@uploaded_file.file), target: '_blank' do %>
+              <%= image_tag @uploaded_file.file.variant(resize_to_fill: [400, 300]), class: 'img-fluid' %>
+            <% end %>
+          <% else %>
+            <%= icon icon_for_content_type(@uploaded_file.content_type), class: 'fa-3x' %>
+          <% end %>
         </div>
         <h1 class="h3 mb-0"><%= @uploaded_file.filename %></h1>
         <dl class="small mt-2 mb-0">

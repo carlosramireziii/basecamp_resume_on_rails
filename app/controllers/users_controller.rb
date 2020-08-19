@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user.attributes = user_params
 
     if @user.save
-      redirect_to [:edit, :users]
+      redirect_to [:edit, :users], notice: 'Your profile changes have been saved'
     else
       render :edit
     end

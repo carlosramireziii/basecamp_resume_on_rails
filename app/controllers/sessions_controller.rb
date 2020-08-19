@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     if @user && @user.authenticate(password_param)
       sign_in @user
-      redirect_to [:root], notice: 'Welcome back!'
+      redirect_to [:root]
     else
       redirect_to [:new, :sessions], alert: "Hmm that didn't work. Could you try again please"
     end
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to [:new, :sessions], alert: 'Come back soon!'
+    redirect_to [:new, :sessions]
   end
 
   private
