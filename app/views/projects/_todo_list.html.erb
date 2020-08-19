@@ -1,4 +1,4 @@
 <h3 class="h6 font-weight-bold small"><%= todo_list.title %></h3>
 <ul class="list-unstyled small">
-  <%= render todo_list.todo_items.limit(6) %>
+  <%= render todo_list.todo_items.order_by_incomplete_first.limit(6) %>
 </ul>

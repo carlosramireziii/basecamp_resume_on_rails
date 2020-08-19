@@ -4,6 +4,7 @@ class TodoItem < ApplicationRecord
 
   delegate :project, to: :todo_list
 
+  scope :order_by_incomplete_first, -> { order(complete: :asc) }
   scope :complete, -> { where(complete: true) }
   scope :incomplete, -> { where(complete: false) }
 
