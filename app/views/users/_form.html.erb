@@ -1,3 +1,4 @@
+<%= render 'alerts' %>
 <%= bootstrap_form_with model: user, url: [:users] do |form| %>
   <% if user.persisted? %>
     <%= form.file_field :avatar %>
@@ -9,7 +10,7 @@
     <%= form.password_field :password %>
   <% end %>
   <div class="row no-gutters">
-    <%= form.button class: "btn btn-success flex-grow-1" %>
+    <%= form.button class: "btn btn-success flex-grow-1", data: { disable_with: icon('spinner fa-spin', text: 'Saving') } %>
     <%= link_to 'Cancel', :root, class: 'btn ml-auto' %>
   </div>
 <% end %>

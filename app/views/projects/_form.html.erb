@@ -2,7 +2,7 @@
   <%= form.text_field :title %>
   <%= form.text_area :description, rows: 6 %>
   <div class="row no-gutters">
-    <%= form.button class: "btn btn-success flex-grow-1" %>
+    <%= form.button class: "btn btn-success flex-grow-1", data: { disable_with: icon('spinner fa-spin', text: 'Saving') } %>
     <%= link_to 'Cancel', :root, class: 'btn ml-auto' %>
   </div>
 <% end %>

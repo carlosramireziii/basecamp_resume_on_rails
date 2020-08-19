@@ -2,5 +2,5 @@
 <%= bootstrap_form_with url: [:sessions] do |form| %>
   <%= form.email_field :email %>
   <%= form.password_field :password %>
-  <%= form.submit 'Log in', class: 'btn btn-success btn-block' %>
+  <%= form.button 'Log in', class: 'btn btn-success btn-block', data: { disable_with: icon('spinner fa-spin', text: 'Logging in') } %>
 <% end %>
