@@ -11,7 +11,7 @@ module Registration
 
   def require_registration
     if Current.user.guest?
-      redirect_to new_users_path, notice: "You'll need to register first in order to do that"
+      redirect_to new_users_path, notice: "Please register first before trying to do that. It's quick and easy!"
     end
   end
 end
