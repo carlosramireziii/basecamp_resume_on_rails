@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="col-sm-12 col-lg-10 mx-auto">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-white rounded-bottom-0 justify-content-center border-top border-left border-right w-75 mx-auto mb-0">
+        <li class="breadcrumb-item"><%= link_to icon('th', text: @project.title), [@project], class: 'text-reset' %></li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <div class="d-flex justify-content-center align-items-center">
+          <h1 class="h3 mb-0">To-dos</h1>
+          <%= link_to icon('plus', text: 'New list'), [:new, @project, :todo_list], class: 'btn btn-success btn-sm ml-2' %>
+        </div>
+        <hr>
+        <div class="col-lg-8 mx-auto">
+          <div class="mt-3">
+            <%= render(@todo_lists) || render('empty') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

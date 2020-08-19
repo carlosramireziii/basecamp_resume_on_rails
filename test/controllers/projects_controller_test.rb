@@ -42,6 +42,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get show' do
     uploaded_file = @project.uploaded_files.first
+    message = @project.messages.first
+    todo_list = @project.todo_lists.first
 
     get project_path(@project)
 
@@ -51,6 +53,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', text: 'To-dos'
     assert_select 'h2', text: 'Docs & Files'
     assert_select 'h3', text: uploaded_file.filename.to_s
+    assert_select 'h3', text: message.title
+    assert_select 'h3', text: todo_list.title
   end
 
   test 'should get edit' do

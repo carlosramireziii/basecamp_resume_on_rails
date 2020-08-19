@@ -1,0 +1,4 @@
+<li>
+  <%= check_box_tag nil, nil, todo_item.complete? %>
+  <span class="<%= class_string('text-muted small' => todo_item.complete?) %>"><%= todo_item.title %></span>
+</li>

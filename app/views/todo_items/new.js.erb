@@ -1,0 +1,2 @@
+var formHTML = "<%= j render('new_todo_item', project: @project, todo_list: @todo_list, todo_item: @todo_item) %>";
+document.querySelector("#<%= dom_id(TodoItem.new, dom_id(@todo_list)) %>").innerHTML = formHTML;

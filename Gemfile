@@ -33,6 +33,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Form builder for Bootstrap
 gem 'bootstrap_form', '~> 4.5.0'
 
+# Helper for generating CSS class strings based on conditional logic
+gem 'css-class-string', '~> 0.1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
